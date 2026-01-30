@@ -1,5 +1,6 @@
 ﻿# IMPORTS
 
+# Find the length of the longest word in a sentence
 _sent = input("Enter sentence: ") # get input
 _splitSent = _sent.split() # split the input into words
 _fixedSplitSent = _splitSent.copy() # create a copy to fix up
