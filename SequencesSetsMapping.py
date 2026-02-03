@@ -37,5 +37,31 @@ for name in baby_names_sorted: # iterate through sorted list of names
 # Create a list of boy_names and girl_names. Print the girl_names that start with 'S'.
 boy_names = [] # initialize boy names list
 girl_names = [] # initialize girl names list
-for record in records:
-    girl_names.append(record[3]) if record[1] == 'FEMALE' else boy_names.append(record[3])
+for record in records: # fill both lists simultaneously
+    if record[1] == 'FEMALE':
+        girl_names.append(record[3])
+    else:
+        boy_names.append(record[3])
+
+# sort the list of girl names as we did for the names above
+girl_names = [names.capitalize() for names in girl_names]
+girl_names = list(set(girl_names))
+girl_names.sort()
+
+# let's do the same for the boy names...
+boy_names = [names.capitalize() for names in boy_names]
+boy_names = list(set(boy_names))
+boy_names.sort()
+
+for name in girl_names: # iterate through each girl name
+    if name.startswith('S'): # if the name starts with S
+        print(name) # print it!
+
+# 2. Tuples
+
+# Use the zip() function to pair up girl_names and boy_names into a variable called pairs.
+pairs = zip(boy_names, girl_names)
+
+# Unpack each tuple pair of girl and boy name and their position.
+
+
