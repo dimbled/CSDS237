@@ -1,5 +1,7 @@
 ﻿import os
 import csv
+from itertools import zip_longest
+
 
 # 1. Lists
 
@@ -37,6 +39,7 @@ for name in baby_names_sorted: # iterate through sorted list of names
 # Create a list of boy_names and girl_names. Print the girl_names that start with 'S'.
 boy_names = [] # initialize boy names list
 girl_names = [] # initialize girl names list
+
 for record in records: # fill both lists simultaneously
     if record[1] == 'FEMALE':
         girl_names.append(record[3])
@@ -57,11 +60,29 @@ for name in girl_names: # iterate through each girl name
     if name.startswith('S'): # if the name starts with S
         print(name) # print it!
 
-# 2. Tuples
+
+# 2. Tuples QUESTION DO YOU WANT US TO REBUILD THE LISTS WITH THEIR RANKS INCLUDED?????
 
 # Use the zip() function to pair up girl_names and boy_names into a variable called pairs.
-pairs = zip(boy_names, girl_names)
+pairs = zip_longest(girl_names, boy_names, fillvalue = "Name") # using zip longest to avoid losing names!
 
 # Unpack each tuple pair of girl and boy name and their position.
+unpacked_pairs = enumerate(pairs)
+
+# Print the names in the following format. Rank #: Girlname and Boyname where the number # is the position of each pair.
+for pair in unpacked_pairs:
+     print(f"Rank #{pair[0]}: {pair[1][0]} and {pair[1][1]}")
+
+# 3. Dictionaries
+
+# Organize the baby names in a nested dictionary babynames_dict in the following format:
+
+babynames_dict = {
+    {
+        {
+
+        }
+    }
+}
 
 
