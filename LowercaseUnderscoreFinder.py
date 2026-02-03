@@ -3,6 +3,10 @@
 # Find sequences of lowercase letters joined by an underscore.
 # ASK FOR MORE SPECIFICITY
 
-_str = 'WEATher_is_14deg_less_than_NORMAL65'
+str = 'WEATher_is_14deg_less_than_NORMAL65'
+str_list = []
+temp_str = ""
 
-_fixedStr = "".join(filter(str.isalpha, _str))
+for letter in str:
+
+    temp_str.join(filter(str.isalpha, _str))
