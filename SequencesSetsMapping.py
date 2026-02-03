@@ -13,7 +13,7 @@ def csv_to_array(filename):
         next(reader)
         return list(reader)
 
-records = csv_to_array('C:/Users/aaron/PycharmProjects/CSDS237/Popular_Baby_Names.csv')
+records = csv_to_array('Popular_Baby_Names.csv')
 
 # Create a list called baby_names that contain the name found in the fourth element in records.
 # Capitalize and sort the list in alphabetical order.
@@ -114,20 +114,24 @@ babynames_dict.update({ "American Indian": {"FEMALE": { "2017": {} } } })
 babynames_hispanic = babynames_dict.pop("HISPANIC")
 # I had to use "HISPANIC" and not the suggested "Hispanic"
 
+
+
 # Generate a list of unique baby names in alphabetical order from babynames_hispanic dictionary.
 # Print the number of baby names in the list.
+unique_babynames_hispanic = [] # initialize list of unique names
+temp_dict = babynames_hispanic["FEMALE"] # create temp
+for items in temp_dict.values():
+    temp_list = items.keys()
+    temp_str = list(temp_list)[0]
+    unique_babynames_hispanic.append(temp_str)
 
-unique_babynames_hispanic = []
+temp_dict = babynames_hispanic["MALE"] # now do the same for male names
+for items in temp_dict.values():
+    temp_list = items.keys()
+    temp_str = list(temp_list)[0]
+    unique_babynames_hispanic.append(temp_str)
 
-# temp_list = []
-#
-# for items in babynames_hispanic.items():
-#     for values in items:
-#         temp_value = str(values)
-#         # print(temp_value)
-#         temp_list.append(temp_value.rsplit())
-#
-#         print(temp_list)
-#
+unique_babynames_hispanic = list(set(unique_babynames_hispanic)) # remove any duplicates
+unique_babynames_hispanic.sort() # sort the list alphabetically
+print(f"The length of the list of unique hispanic baby names is {str(len(unique_babynames_hispanic))} names.")
 
-# pprint(unique_babynames_hispanic[3])
