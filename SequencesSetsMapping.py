@@ -91,7 +91,7 @@ for e in ethnicity:
 pprint(babynames_dict)
 
 for item in records: # DO YOU WANT US TO INCLUDE YEAR?
-    name = {int(item[0]): {item[3].capitalize() : (item[4], item[5])} } # added year to the provided code
+    name = {int(item[0]): {item[3].capitalize() : (int(item[4]), int(item[5]))} } # added year to the provided code
     babynames_dict[item[2]][item[1]].update(name)
 pprint(babynames_dict)
 
@@ -116,7 +116,18 @@ babynames_hispanic = babynames_dict.pop("HISPANIC")
 
 # Generate a list of unique baby names in alphabetical order from babynames_hispanic dictionary.
 # Print the number of baby names in the list.
+
 unique_babynames_hispanic = []
 
+# temp_list = []
+#
+# for items in babynames_hispanic.items():
+#     for values in items:
+#         temp_value = str(values)
+#         # print(temp_value)
+#         temp_list.append(temp_value.rsplit())
+#
+#         print(temp_list)
+#
 
-pprint(unique_babynames_hispanic)
+# pprint(unique_babynames_hispanic[3])
