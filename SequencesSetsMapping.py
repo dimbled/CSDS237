@@ -89,8 +89,8 @@ for e in ethnicity:
         current[e].update(next_1)
 pprint(babynames_dict)
 
-for item in records:
-    name = { item[3].capitalize() : (item[4], item[5]) }
-    # babynames_dict["ethnicity"]["gender"].update(name)
+for item in records: # DO YOU WANT US TO INCLUDE YEAR?
+    name = {item[3].capitalize() : (item[4], item[5]) }
+    babynames_dict[item[2]][item[1]].update(name)
 
 pprint(babynames_dict)
