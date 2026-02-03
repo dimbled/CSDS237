@@ -76,13 +76,21 @@ for pair in unpacked_pairs:
 # 3. Dictionaries
 
 # Organize the baby names in a nested dictionary babynames_dict in the following format:
+# the provided code is below
+babynames_dict = current = {}
+ethnicity = set([item[2] for item in records])
+gender = set([item[1] for item in records])
 
-babynames_dict = {
-    {
-        {
+from pprint import pprint
+for e in ethnicity:
+    current[e] = {}
+    for g in gender:
+        next_1 = {g : {}}
+        current[e].update(next_1)
+pprint(babynames_dict)
 
-        }
-    }
-}
+for item in records:
+    name = { item[3].capitalize() : (item[4], item[5]) }
+    # babynames_dict["ethnicity"]["gender"].update(name)
 
-
+pprint(babynames_dict)
