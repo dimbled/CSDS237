@@ -1,5 +1,6 @@
 ﻿import os
 import csv
+from enum import unique
 from itertools import zip_longest
 
 
@@ -90,7 +91,32 @@ for e in ethnicity:
 pprint(babynames_dict)
 
 for item in records: # DO YOU WANT US TO INCLUDE YEAR?
-    name = {item[3].capitalize() : (item[4], item[5]) }
+    name = {int(item[0]): {item[3].capitalize() : (item[4], item[5])} } # added year to the provided code
     babynames_dict[item[2]][item[1]].update(name)
-
 pprint(babynames_dict)
+
+# Access babynames_dict and print the ethnicities in alphabetical order.
+ethnicities = list(babynames_dict.keys())
+ethnicities.sort()
+print(ethnicities)
+
+
+# Check if the key 'American Indian' is in the dictionary. Print 'Not found' if the key is not found in the dictionary.
+print(babynames_dict.get("American Indian", "Not Found"))
+
+# Update the dictionary with the key 'American Indian' with the given value. { "FEMALE": { "2017": {} } }.
+babynames_dict.update({ "American Indian": {"FEMALE": { "2017": {} } } })
+# I did "American Indian" instead of the more consistent "AMERICAN INDIAN"
+
+
+# Remove the key 'Hispanic' from the dictionary.
+# Save the result in babynames_hispanic.
+babynames_hispanic = babynames_dict.pop("HISPANIC")
+# I had to use "HISPANIC" and not the suggested "Hispanic"
+
+# Generate a list of unique baby names in alphabetical order from babynames_hispanic dictionary.
+# Print the number of baby names in the list.
+unique_babynames_hispanic = []
+
+
+pprint(unique_babynames_hispanic)
