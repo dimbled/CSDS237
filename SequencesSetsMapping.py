@@ -91,12 +91,16 @@ for e in ethnicity:
     for g in gender:
         next_1 = {g : {}}
         current[e].update(next_1)
+
+# NOTE: This provided code snippet includes an otherwise superfluous pprint() which I have left in
+print("NOTE: the following output is printed by the provided code snippet.")
 pprint(babynames_dict)
 
-for item in records: # DO YOU WANT US TO INCLUDE YEAR?
+for item in records:
     name = {int(item[0]): {item[3].capitalize() : (int(item[4]), int(item[5]))} } # added year to the provided code
     babynames_dict[item[2]][item[1]].update(name)
-pprint(babynames_dict)
+# NOTE: No print output is requested in the assignment here, so the following line of code has been commented out.
+# pprint(babynames_dict)
 
 # Access babynames_dict and print the ethnicities in alphabetical order.
 ethnicities = list(babynames_dict.keys())
