@@ -13,4 +13,5 @@ for i in range(len(_fixedSplitSent)): # iterate through each word in the array o
         _longestLen = len(_fixedSplitSent[i]) # update the longest word length
         _longestID = i # update the position of the longest word for retrieval
 
-print("The longest word in the sentence: " + _sent + " is " + _splitSent[_longestID] + " with length of " + str(_longestLen) + " characters.")
+print(f"The longest word in the sentence:{_sent} is {_splitSent[_longestID]}"
+      f" with length of {str(_longestLen)} characters.")

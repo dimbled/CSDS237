@@ -26,21 +26,24 @@ for dict in penguins:
 male_only_species = male_penguin_species.difference(female_penguin_species)
 # the hint doesn't make sense, as it gives only the species with female subjects and without male subjects
 # Also, female_penguin_species contains all the elements of male_penguin_species
-print(f"The species with male subjects without female subjects are {male_only_species}"
-      f" with length {len(male_only_species)}.")
+# THE LINES BELOW HAVE BEEN COMMENTED OUT BECAUSE THE ASSIGNMENT DOES NOT ASK FOR A PRINT OUTPUT
+# print(f"The species with male subjects without female subjects are {male_only_species}"
+#       f" with length {len(male_only_species)}.")
 # with the given Penguins_Data.csv, this will always yield the empty set
 # there are no species containing only male penguins, so I'm not sure exactly what is expected here
 
 # Find all the species in both sets and store the results as all_species.
 all_species = female_penguin_species.union(male_penguin_species)
 # this is the same as female_penguin_species for the reasons stated above
-print(f"The species in the male and female sets are {all_species} with length {len(all_species)}.")
+# THE LINE BELOW HAS BEEN COMMENTED OUT BECAUSE THE ASSIGNMENT DOES NOT ASK FOR A PRINT OUTPUT
+# print(f"The species in the male and female sets are {all_species} with length {len(all_species)}.")
 
 # Find all the species that occur in both sets.
 species_with_male_female = female_penguin_species.intersection(male_penguin_species)
 # this will yield male_penguin_species for the reasons stated above
-print(f"The species with both male and female subjects are {species_with_male_female}"
-      f" with length {len(species_with_male_female)}.")
+# THE LINES BELOW HAVE BEEN COMMENTED OUT BECAUSE THE ASSIGNMENT DOES NOT ASK FOR A PRINT OUTPUT
+# print(f"The species with both male and female subjects are {species_with_male_female}"
+#       f" with length {len(species_with_male_female)}.")
 
 
 # PART 3: Collections Module
@@ -48,12 +51,12 @@ print(f"The species with both male and female subjects are {species_with_male_fe
 
 # Create a Counter of the penguins list called penguin_gender_counts.
 penguin_gender_counts = Counter(p["Gender"] for p in penguins)
-print(penguin_gender_counts)
 
 # Print the three most common species counts.
 penguin_species_counts = Counter(p["Species"] for p in penguins)
-print(penguin_species_counts)
-
+penguin_species_counts.most_common(3)
+# There are only three penguin species in the given data, so this will always show all three species and their counts
+print(f"The three most common penguin species counts are: {penguin_species_counts}.")
 
 #2. DefaultDict
 
@@ -69,4 +72,5 @@ for p in male_penguins:
     male_penguin_weights[p["Species"]].append(p["Body_Mass_g"])
 
 # Use the .items() method to print the items of the male_penguin_weights dictionary.
-pprint(male_penguin_weights.items())
+pprint(f"The following are the items of the male_penguin_weights dictionary."
+       f" Each number is a penguin's weight in grams: {male_penguin_weights.items()}.")

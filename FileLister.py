@@ -2,4 +2,5 @@
 import os
 
 # List all files in a directory
-print(os.listdir()) # lists all files in directory containing this file
+# lists all files in directory containing this file
+print(f"The files in the directory containing this file are {os.listdir()}.")

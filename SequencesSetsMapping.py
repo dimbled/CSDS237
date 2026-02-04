@@ -1,8 +1,8 @@
-﻿import os
+﻿# IMPORTS
+import os
 import csv
 from enum import unique
 from itertools import zip_longest
-
 
 # 1. Lists
 
@@ -20,10 +20,9 @@ records = csv_to_array('Popular_Baby_Names.csv')
 baby_names = [record[3].capitalize() for record in records] # assembles list of names and capitalizes them
 baby_names.sort() # sorts list of names
 
-
 # Find the list of unique baby_names using set() function, and print the number of unique baby names in the list.
 names_set = set(baby_names) # creates a set from the list of names
-print(len(names_set)) # prints number of items in the set of unique baby names
+print(f"The number of unique baby names is {len(names_set)}.") # prints number of items in the set of unique baby names
 
 # Use the .extend() method on baby_names_sorted to add 'Ida', 'Will', 'Sandeep', 'Jim', 'Karthik'. Sort the list.
 baby_names_sorted = list(names_set) # create a list from the set to eliminate duplicates
@@ -57,12 +56,13 @@ boy_names = [names.capitalize() for names in boy_names]
 boy_names = list(set(boy_names))
 boy_names.sort()
 
+print("The following list are all the unique girl names starting with 'S' in alphabetical order.")
 for name in girl_names: # iterate through each girl name
     if name.startswith('S'): # if the name starts with S
         print(name) # print it!
 
 
-# 2. Tuples QUESTION DO YOU WANT US TO REBUILD THE LISTS WITH THEIR RANKS INCLUDED?????
+# 2. Tuples
 
 # Use the zip() function to pair up girl_names and boy_names into a variable called pairs.
 pairs = zip_longest(girl_names, boy_names, fillvalue = "Name") # using zip longest to avoid losing names!
@@ -71,6 +71,9 @@ pairs = zip_longest(girl_names, boy_names, fillvalue = "Name") # using zip longe
 unpacked_pairs = enumerate(pairs)
 
 # Print the names in the following format. Rank #: Girlname and Boyname where the number # is the position of each pair.
+print(f"The following list are each pair of girl names and boy names where their Rank # is the position of each pair."
+      f"\nNote that there are more girl names than boy names, so the extra girl names nave been paired up with"
+      f"\n\'Name\' so that they are not lost.")
 for pair in unpacked_pairs:
      print(f"Rank #{pair[0]}: {pair[1][0]} and {pair[1][1]}")
 
@@ -98,8 +101,7 @@ pprint(babynames_dict)
 # Access babynames_dict and print the ethnicities in alphabetical order.
 ethnicities = list(babynames_dict.keys())
 ethnicities.sort()
-print(ethnicities)
-
+print(f"These are the ethnicities listed in alphabetical order: {ethnicities}.")
 
 # Check if the key 'American Indian' is in the dictionary. Print 'Not found' if the key is not found in the dictionary.
 print(babynames_dict.get("American Indian", "Not Found"))
@@ -108,13 +110,10 @@ print(babynames_dict.get("American Indian", "Not Found"))
 babynames_dict.update({ "American Indian": {"FEMALE": { "2017": {} } } })
 # I did "American Indian" instead of the more consistent "AMERICAN INDIAN"
 
-
 # Remove the key 'Hispanic' from the dictionary.
 # Save the result in babynames_hispanic.
 babynames_hispanic = babynames_dict.pop("HISPANIC")
 # I had to use "HISPANIC" and not the suggested "Hispanic"
-
-
 
 # Generate a list of unique baby names in alphabetical order from babynames_hispanic dictionary.
 # Print the number of baby names in the list.
@@ -133,5 +132,4 @@ for items in temp_dict.values():
 
 unique_babynames_hispanic = list(set(unique_babynames_hispanic)) # remove any duplicates
 unique_babynames_hispanic.sort() # sort the list alphabetically
-print(f"The length of the list of unique hispanic baby names is {str(len(unique_babynames_hispanic))} names.")
-
+print(f"The length of the list of unique hispanic baby names is {str(len(unique_babynames_hispanic))}.")
